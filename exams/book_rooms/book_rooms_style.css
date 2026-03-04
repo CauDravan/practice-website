@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f4f8;
+}
+
+.container {
+    width: 95%;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border: 4px solid #1f2f57;
+    border-radius: 6px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.rating {
+    color: #ff6600;
+    font-size: 14px;
+}
+
+.review {
+    color: #ff6600;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.hotel-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.room-type {
+    color: #777;
+    font-size: 14px;
+}
+
+.price-label {
+    color: #ff6600;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #2e8b57;
+    margin-bottom: 15px;
+}
+
+.button {
+    display: block;
+    text-align: center;
+    background: #ff6600;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #e65c00;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
