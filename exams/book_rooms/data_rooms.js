@@ -4,12 +4,6 @@ function addRoom() {
     var name = document.getElementById("name").value.trim();
     var desc = document.getElementById("desc").value.trim();
     var price = document.getElementById("price").value.trim();
-    var image = document.getElementById("image");
-
-    if (!name || !desc || !price || !image) {
-        errorDiv.innerText = "Vui lòng nhập đầy đủ thông tin";
-        return;
-    }
 
     if (price <= 0) {
         errorDiv.innerText = "Giá phải lớn hơn 0";
@@ -47,5 +41,4 @@ function clearForm() {
     document.getElementById("name").value = "";
     document.getElementById("desc").value = "";
     document.getElementById("price").value = "";
-    document.getElementById("image").image = "";
 }

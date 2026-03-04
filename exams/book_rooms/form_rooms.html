@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Form input data</title>
     <link rel="stylesheet" href="form_style.css">
-    <script src="data_rooms.js"></script>
 </head>
 
 <body>
@@ -13,32 +12,30 @@
     <div class="header">
         <h2>Quản lý phòng</h2>
         <div class="button-group">
-            <button class="btn btn-show" onclick="renderRoom()">Hiển Thị</button>
+            <button class="btn btn-show" onclick="renderRooms()">Hiển Thị</button>
             <button class="btn btn-add" onclick="addRoom()">Thêm mới phòng</button>
         </div>
     </div>
 
-    <hr>
-
-    <form>
-        <div class="form-row">
-            <div class="form-group">
-                <label>Tên phòng</label>
-                <input type="text" id="name">
-            </div>
-
-            <div class="form-group">
-                <label>Mô tả phòng</label>
-                <input type="text" id="desc">
-            </div>
-
-            <div class="form-group">
-                <label>Giá</label>
-                <input type="number" id="price">
-            </div>
-
-            <div class="room-list" id="list"></div>
+    <div class="form-row">
+        <div class="form-group">
+            <label>Tên phòng</label>
+            <input type="text" id="name">
         </div>
-    </form>
+
+        <div class="form-group">
+            <label>Mô tả phòng</label>
+            <input type="text" id="desc">
+        </div>
+
+        <div class="form-group">
+            <label>Giá</label>
+            <input type="number" id="price">
+        </div>
+    </div>
+    <div class="room-list" id="list"></div>
     </div>
 </body>
+
+<script src="data_rooms.js"></script>
+</html>
