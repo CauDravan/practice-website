@@ -22,7 +22,6 @@ function addRoom() {
     };
 
     rooms.push(room);
-    renderRooms();
     clearForm();
     alert("Đã thêm phòng thành công");
 }
