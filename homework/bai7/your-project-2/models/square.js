@@ -17,7 +17,7 @@ db.connect((err) => {
   }
 });
 
-exports.insertSquare = (side, callback) => {
+const insertSquare = (side, callback) => {
 
   const sql = "INSERT INTO squares (side) VALUES (?)";
 
@@ -30,4 +30,7 @@ exports.insertSquare = (side, callback) => {
 
 };
 
-module.exports = db;
+module.exports = {
+  db,
+  insertSquare
+};
