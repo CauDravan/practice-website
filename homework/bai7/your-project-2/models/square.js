@@ -1,23 +1,33 @@
-const mysql = require('mysql2');  
+const mysql = require('mysql2');
+require('dotenv').config();
 
-// Tạo kết nối đến cơ sở dữ liệu MySQL  
-const pool = mysql.createPool({  
-    host: process.env.DB_HOST,  
-    user: process.env.DB_USER,  
-    password: process.env.DB_PASSWORD,  
-    database: process.env.DB_NAME  
-});  
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
+});
 
-const saveSquareData = (sideLength, perimeter, area) => {  
-    return new Promise((resolve, reject) => {  
-        const sql = 'INSERT INTO squares (sideLength, perimeter, area) VALUES (?, ?, ?)';  
-        pool.query(sql, [sideLength, perimeter, area], (err, results) => {  
-            if (err) return reject(err);  
-            resolve(results);  
-        });  
-    });  
-};  
+db.connect((err) => {
+  if (err) {
+    console.error("MySQL connection error:", err);
+  } else {
+    console.log("Connected to MySQL!");
+  }
+});
 
-module.exports = {  
-    saveSquareData,  
-};  
+exports.insertSquare = (side, callback) => {
+
+  const sql = "INSERT INTO squares (side) VALUES (?)";
+
+  db.query(sql, [side], (err, result) => {
+    if (err) {
+      return callback(err);
+    }
+    callback(null, result);
+  });
+
+};
+
+module.exports = db;
