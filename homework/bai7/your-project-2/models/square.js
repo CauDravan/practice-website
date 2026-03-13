@@ -17,20 +17,26 @@ db.connect((err) => {
   }
 });
 
-const insertSquare = (side, callback) => {
+const saveSquareData = (side, perimeter, area) => {
 
-  const sql = "INSERT INTO squares (side) VALUES (?)";
+  return new Promise((resolve, reject) => {
 
-  db.query(sql, [side], (err, result) => {
-    if (err) {
-      return callback(err);
-    }
-    callback(null, result);
+    const sql = "INSERT INTO squares (side, perimeter, area) VALUES (?, ?, ?)";
+
+    db.query(sql, [side, perimeter, area], (err, result) => {
+
+      if (err) {
+        return reject(err);
+      }
+
+      resolve(result);
+
+    });
+
   });
 
 };
 
 module.exports = {
-  db,
-  insertSquare
+  saveSquareData
 };
